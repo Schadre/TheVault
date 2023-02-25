@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('../../static/images/Signup.jpeg');
+        background-position: 100%;
+        background-size: cover;
+        height: 100vh;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<main class="container p-5">
+    <div class="row">
+        <aside class="col-12 col-md-6">
+            <h2 class="text-warning">Create your account</h2>
+            {% include 'forms.html' %}
+        </aside>
+    </div>
+</main>
+{% endblock %}

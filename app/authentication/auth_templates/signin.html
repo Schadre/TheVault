@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('../../static/images/Login.jpeg');
+        background-position: 100%;
+        background-size: cover;
+        height: 100vh;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<main class="container p-5">
+    <div class="row">
+        <aside class="col-12 col-md-6">
+            <h2 class="text-warning">Sign In</h2>
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <fieldset id="username-field" class="text-warning">
+                        {{ form.username.label }}
+                        {{ form.username(class = 'form-control', placeholder = 'Enter Username ') }}
+                    </fieldset>
+                </div>
+                <fieldset id="pass-field" class="text-warning">
+                    {{ form.password.label }}
+                    {{ form.password(class = 'form-control', placeholder = 'Enter Password ') }}
+                </fieldset>
+                {{ form.submit_button(class = "btn btn-warning btn-block mt-2 text-light") }}
+                </div>
+            </form>
+        </aside>
+    </div>
+</main>
+{% endblock %}

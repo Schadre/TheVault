@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('../../static/images/Profile.jpeg');
+        background-position: 100%;
+        height: 100vh;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<section class="text-center p-5">
+    <div class="container p-5">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        <section class="text-center p-5">
+            <!-- Add a form to enter an ISBN and submit the book -->
+            <form action="{{ url_for('site.add') }}" method="POST">
+                <label class="text-warning" for="isbn">ISBN:</label>
+                <input type="text" name="isbn" id="isbn">
+                <button class="btn btn-warning btn-block text-light" type="submit">Add Book</button>
+            </form>
+        </section>
+        <table class="table text-center" id="Books">
+            <tr>
+                <th class="column1 text-warning">Title</th>
+                <th class="column1 text-warning">Author</th>
+                <th class="column1 text-warning">ISBN</th>
+                <th class="column1 text-warning">Actions</th>
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td class="column text-light p-3">{{ book.title }}</td>
+                <td class="column text-light p-3">{{ book.author }}</td>
+                <td class="column text-light p-3">{{ book.isbn }}</td>
+                <td class="column">
+                    <form action="{{ url_for('site.delete', isbn=book.isbn) }}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endblock %}
