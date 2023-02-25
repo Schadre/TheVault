@@ -4,7 +4,7 @@
 <style>
     body {
         background-image: url('../../static/images/Profile.jpeg');
-        background-position: 100%;
+        background-position: center;
         height: 100vh;
         background-size: cover;
         margin: 0;
@@ -14,7 +14,6 @@
 <section class="text-center p-5">
     <div class="container p-5">
         <ul class="list-group">
-            <li class="list-group item text-warning" id="profile">Token: {{ current_user.token }}</li> 
             <li class="list-group-item text-warning" id="profile">First Name: {{ current_user.first }}</li>
             <li class="list-group-item text-warning" id="profile">Last Name: {{ current_user.last }}</li>
             <li class="list-group-item text-warning" id="profile">Username: {{ current_user.username }}</li>

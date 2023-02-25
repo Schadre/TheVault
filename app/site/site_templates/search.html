@@ -4,7 +4,7 @@
 <style>
     body {
         background-image: url('../../static/images/OpenBooks.jpeg');
-        background-position: 100%;
+        background-position: center;
         height: 100vh;
         background-size: cover;
         margin: 0;
@@ -21,10 +21,10 @@
                     </div>
                     <button type="submit" class="btn btn-warning text-light">Search</button>
                 </form>
-                {% if books %}
-                    <h5 class="text-center text-warning p-5" id="Books">"Search for your books here<br>
+                <h5 class="text-center text-warning p-5" id="Books">"Search for your books here<br>
                     Then copy the ISBN<br>
                     Add your ISBN in the field on the Books tab."</h5>
+                {% if books %}
                     <table class="table text-center" id="Books">
                         <thead>
                             <tr>

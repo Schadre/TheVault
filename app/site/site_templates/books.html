@@ -4,12 +4,20 @@
 <style>
     body {
         background-image: url('../../static/images/Profile.jpeg');
-        background-position: 100%;
+        background-position: center;
         height: 100vh;
         background-size: cover;
         margin: 0;
         padding: 0;
     }
+
+    /* Center the table on mobile devices */
+    @media (max-width: 576px) {
+    section {
+        display: block;
+        margin: 0 auto;
+    }
+}
 </style>
 <section class="text-center p-5">
     <div class="container p-5">
@@ -24,10 +32,10 @@
         {% endwith %}
         <section class="text-center p-5">
             <!-- Add a form to enter an ISBN and submit the book -->
-            <form action="{{ url_for('site.add') }}" method="POST">
+            <form class="mx-auto p-5" action="{{ url_for('site.add') }}" method="POST">
                 <label class="text-warning" for="isbn">ISBN:</label>
                 <input type="text" name="isbn" id="isbn">
-                <button class="btn btn-warning btn-block text-light" type="submit">Add Book</button>
+                <button class="btn btn-warning btn-block text-light" type="submit">Add</button>
             </form>
         </section>
         <table class="table text-center" id="Books">
@@ -42,7 +50,7 @@
                 <td class="column text-light p-3">{{ book.title }}</td>
                 <td class="column text-light p-3">{{ book.author }}</td>
                 <td class="column text-light p-3">{{ book.isbn }}</td>
-                <td class="column">
+                <td class="column p-3">
                     <form action="{{ url_for('site.delete', isbn=book.isbn) }}" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="btn btn-danger">Delete</button>

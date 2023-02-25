@@ -30,11 +30,11 @@ a {
 }
 
 @media (max-width: 300px) {
-    html { font-size: 70%; }
+    html { font-size: 75%; }
 }
 
 @media (min-width: 500px) {
-    html { font-size: 80%; }
+    html { font-size: 85%; }
 }
 
 @media (min-width: 700px) {
